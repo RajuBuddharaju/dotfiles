@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Symlink Config Files
-ln -sfn ~/dotfiles/nvim ~/.config/nvim
-ln -sfn ~/dotfiles/i3 ~/.config/i3
-ln -sfn ~/dotfiles/bashrc ~/.bashrc
-ln -sfn ~/dotfiles/zshrc ~/.zshrc
-ln -sfn ~/dotfiles/kitty ~/.config/kitty
+ln -sfnT ~/dotfiles/nvim ~/.config/nvim
+ln -sfnT ~/dotfiles/i3 ~/.config/i3
+ln -sfnT ~/dotfiles/bashrc ~/.bashrc
+ln -sfnT ~/dotfiles/zshrc ~/.zshrc
+ln -sfnT ~/dotfiles/kitty ~/.config/kitty
 
 rm -rf ~/.local/share/fonts
-ln -s ~/dotfiles/fonts ~/.local/share/fonts
+ln -sT ~/dotfiles/fonts ~/.local/share/fonts
 
