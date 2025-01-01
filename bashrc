@@ -119,3 +119,4 @@ fi
 
 # Adding things to path
 export PATH="$HOME/sage:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
