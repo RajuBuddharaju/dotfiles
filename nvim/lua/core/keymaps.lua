@@ -5,7 +5,7 @@ local map = vim.keymap.set
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
 -- Keybinding to toggle Floaterminal
-vim.keymap.set({ "n", "t" }, "<c-t>", function()
+vim.keymap.set({ "n", "t" }, "<leader>tt", function()
   -- If in terminal mode, escape first
   if vim.fn.mode() == "t" then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc><esc>", true, false, true), 'n', false)
