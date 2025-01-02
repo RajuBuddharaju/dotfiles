@@ -1,6 +1,19 @@
 vim.g.mapleader = " "
 local map = vim.keymap.set
 
+-- exiting terminal mode
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+
+-- Keybinding to toggle Floaterminal
+vim.keymap.set({ "n", "t" }, "<c-t>", function()
+  -- If in terminal mode, escape first
+  if vim.fn.mode() == "t" then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc><esc>", true, false, true), 'n', false)
+  end
+  -- Now run the Floaterminal command
+  vim.cmd("Floaterminal")
+end, { noremap = true, silent = true })
+
 -- yank to clipboard
 map({"n","v"}, "<leader>y", [["+y]], { noremap = false, silent = true })
 
