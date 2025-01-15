@@ -1,0 +1,58 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	color_good = "#FFFFFF"
+	interval = 5 
+	markup = "pango"
+}
+
+order += "memory"
+memory {
+	format = "Memory: %used"
+	threshold_degraded = "10%"
+	format_degraded = "Memory free: %free"
+}
+
+order += "disk /"
+disk "/" {
+    format = "Storage: %free"
+}
+
+order += "volume master"
+volume master {
+	format = "Volume: %volume"
+	format_muted = "Volume: muted"
+	device = "default"
+}
+
+order += "battery 0"
+battery 0 {
+	format = "Battery: %status %percentage %remaining"
+	format_down = ""
+	status_chr = "Charging"
+	status_bat = "On Battery"
+	status_unk = "Unknown"
+	status_full = "Full"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 20
+	last_full_capacity = true
+}
+
+order += "wireless wlp0s20f3"
+wireless wlp0s20f3 {
+	format_up = "WiFi: %essid (%quality, %bitrate )"
+	format_down = "WiFi: Down"
+}
+
+order += "ethernet eth0"
+ethernet eth0 {
+	format_up = "Ethernet: %ip (%speed )"
+	format_down = "" // "Ethernet: not connected"
+}
+
+order += "tztime ams"
+tztime ams {
+	format = "%Y-%m-%d %H:%M:%S"
+	timezone = "Europe/Amsterdam"
+}
+
