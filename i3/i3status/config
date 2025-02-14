@@ -27,7 +27,7 @@ volume master {
 
 order += "battery 0"
 battery 0 {
-	format = "Battery: %status %percentage %remaining"
+	format = "%status %percentage %remaining"
 	format_down = ""
 	status_chr = "Charging"
 	status_bat = "Battery"
