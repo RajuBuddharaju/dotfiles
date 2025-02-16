@@ -117,6 +117,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if command -v zoxide >/dev/null 2>&1; then
+    # export _ZO_ECHO="1"
+    export _ZO_FZF_OPTS="--preview 'ls \$(echo \$\{\{\}} | cut -d $'\\t' -f2-)'"
+    alias cd="z"
+    eval "$(zoxide init bash)"
+fi
+
+if command -v eza >/dev/null 2>&1; then
+    eza_ignored_files="" #"--ignore-glob 'Desktop|Documents|Downloads|Music|Pictures|Public|Templates|Videos|VirtualBox VMs'"
+    eza_options=" --no-quotes --git --long --no-time --smart-group --group-directories-first --icons"
+    alias ls="eza $eza_options $eza_ignored_files"
+    alias tree="eza --tree --icons=always"
+    unset eza_options eza_ignored_files
+fi
+
 # Adding things to path
-export PATH="$HOME/sage:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
