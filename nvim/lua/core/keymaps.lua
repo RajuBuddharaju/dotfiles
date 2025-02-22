@@ -55,3 +55,7 @@ map("n", "<leader>hs", function()  -- Stage hunk
   require("gitsigns").stage_hunk()
 end, { noremap = true, silent = true })
 
+-- Keymap to show diagnostics without using mouse
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
+
+
