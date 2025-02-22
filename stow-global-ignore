@@ -23,9 +23,6 @@ _darcs
 \.gitignore
 \.gitinclude
 
-restow.sh
-.stow-global-ignore
-
 # ignoring the .vscode subdirectory
 \.vscode
 
