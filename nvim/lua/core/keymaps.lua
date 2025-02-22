@@ -32,6 +32,12 @@ map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = tr
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })  -- Toggle NvimTree
 map("n", "<leader>o", ":NvimTreeFocus<CR>", { noremap = true, silent = true })   -- Focus NvimTree
 
+-- -- Yazi Keybindings
+-- map("n", "<leader>e", "<cmd>Yazi<CR>", { noremap = true, silent = true })  -- Open Yazi
+-- map("n", "<leader>o", "<cmd>Yazi cwd<CR>", { noremap = true, silent = true }) -- Open Yazi in current working dir
+-- map("n", "<c-up>", "<cmd>Yazi toggle<CR>", { noremap = true, silent = true }) -- Resume last Yazi session
+
+
 -- Git Signs
 map("n", "]c", function()  -- Jump to next hunk
   require("gitsigns").next_hunk()
