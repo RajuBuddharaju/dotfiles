@@ -9,5 +9,3 @@ else
 fi
 
 stow --dir="$current_script_path" --target="$HOME" --verbose=5 .
-
-rm ~/stow-global-ignore ~/restow.sh

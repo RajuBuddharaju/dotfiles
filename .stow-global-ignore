@@ -31,6 +31,8 @@ _darcs
 \nix
 \default.nix
 
+restow.sh
+
 # # Unignore the specific file
 # !.config/home-manager/home.nix
 # !.config/home-manager
