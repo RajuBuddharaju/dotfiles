@@ -1,5 +1,6 @@
 return{
   url = "https://codeberg.org/jthvai/lavender.nvim",
+  enabled = false,
   branch = "stable", -- versioned tags + docs updates from main
   lazy = false,
   priority = 1000,

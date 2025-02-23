@@ -1,0 +1,12 @@
+shell /usr/bin/bash
+
+font_family Hack Nerd Font
+font_size 13
+
+
+
+
+# BEGIN_KITTY_THEME
+# 1984 Dark
+include current-theme.conf
+# END_KITTY_THEME

@@ -5,7 +5,7 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = true,
-        theme = "lavender",  -- Set your preferred colorscheme
+        theme = "catppuccin",  -- Set your preferred colorscheme
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
