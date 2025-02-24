@@ -31,7 +31,6 @@ _darcs
 \nix
 \default.nix
 
-brr.py
 restow.sh
 
 # # Unignore the specific file
