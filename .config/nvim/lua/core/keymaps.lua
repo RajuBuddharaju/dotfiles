@@ -58,4 +58,9 @@ end, { noremap = true, silent = true })
 -- Keymap to show diagnostics without using mouse
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
 
+-- Formatting with one key.
+vim.keymap.set("n", "<leader>i", function()
+  vim.lsp.buf.format({ async = true }) -- Uses LSP formatting if available
+end, { desc = "Format buffer" })
+
 
