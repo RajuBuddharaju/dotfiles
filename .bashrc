@@ -58,7 +58,7 @@ fi
 
 ncolors=$(tput colors)
 if [[ -n "$ncolors" && "$ncolors" -gt 2 ]]; then
-    PS1='[\[\033[1;33m\]\t\[\033[00m\]] \[\033[1;35m\]\u\[\033[0m\]@\[\033[1;35m\]\h\[\033[00m\]:\[\033[1;34m\]\w\[\033[00m\]\$ '
+    PS1='[\[\e[0;33m\]\t\[\e[0m\]] \[\e[0;35m\]\u\[\e[0m\]@\[\e[0;35m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -134,3 +134,9 @@ fi
 
 # Adding things to path
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export TERM=xterm-256color
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

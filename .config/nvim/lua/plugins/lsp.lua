@@ -41,6 +41,50 @@ return {
 
       -- C++ LSP
       lspconfig.clangd.setup {}
+
+      -- PHP LSP
+      lspconfig.intelephense.setup {
+        cmd = { "intelephense", "--stdio" },
+        filetypes = { "php" },
+        root_dir = function(fname)
+          return lspconfig.util.root_pattern("package.json", ".git", "index.php")(fname) or vim.fn.getcwd()  -- Fallback to current directory if no project is found
+        end,
+
+        settings = {
+          intelephense = {
+            stubs = {
+              "bcmath", "bz2", "Core", "curl", "date", "dom", "fileinfo", "filter", "gd", "hash",
+              "json", "mbstring", "openssl", "pcre", "PDO", "session", "SPL", "standard", "xml",
+              "zip", "zlib"
+            },
+            files = {
+              maxSize = 5000000, -- Set max file size (5MB)
+            },
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+      }
+
+      -- HTML LSP
+      lspconfig.html.setup {
+        cmd = { "vscode-html-language-server", "--stdio" },
+        filetypes = { "html", "htm", "twig", "php" },
+        settings = {
+          html = {
+            format = {
+              wrapLineLength = 120,
+              unformatted = "pre,code,textarea",
+            },
+            hover = {
+              documentation = true,
+              references = true,
+            },
+          },
+        },
+      }
+
     end,
   }
 }
