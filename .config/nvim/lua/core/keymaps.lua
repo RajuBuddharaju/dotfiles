@@ -30,7 +30,6 @@ map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = tr
 
 -- File Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })  -- Toggle NvimTree
-map("n", "<leader>o", ":NvimTreeFocus<CR>", { noremap = true, silent = true })   -- Focus NvimTree
 
 -- -- Yazi Keybindings
 -- map("n", "<leader>e", "<cmd>Yazi<CR>", { noremap = true, silent = true })  -- Open Yazi
@@ -62,5 +61,10 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, si
 vim.keymap.set("n", "<leader>i", function()
   vim.lsp.buf.format({ async = true }) -- Uses LSP formatting if available
 end, { desc = "Format buffer" })
+
+-- For switching buffers in the buffer cycle.
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+
 
 

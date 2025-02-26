@@ -19,6 +19,9 @@ local function create_floating_window(opts)
     buf = opts.buf -- Using old buffer
   else
     buf = vim.api.nvim_create_buf(false, true) -- No file, scratch buffer
+     vim.bo[buf].buftype = "nofile" -- Mark as "nofile" (ignored by Bufferline)
+    vim.bo[buf].bufhidden = "hide" -- Hide buffer when closed
+    vim.bo[buf].swapfile = false -- No swapfile
   end
 
   -- Define window configuration
