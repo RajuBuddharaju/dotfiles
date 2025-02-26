@@ -69,3 +69,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.opt.fillchars:append({ eob = ' ' })
+
+vim.opt.wrap = false    -- Disable line wrapping
+vim.opt.linebreak = false  -- Ensure long lines do not break
+
+vim.opt.sidescrolloff = 8  -- Enables horizontal scrolling
