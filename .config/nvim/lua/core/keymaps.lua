@@ -4,15 +4,10 @@ local map = vim.keymap.set
 -- exiting terminal mode
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
--- Keybinding to toggle Floaterminal
-vim.keymap.set({ "n", "t" }, "<leader>tt", function()
-  -- If in terminal mode, escape first
-  if vim.fn.mode() == "t" then
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc><esc>", true, false, true), 'n', false)
-  end
-  -- Now run the Floaterminal command
+vim.keymap.set({ "n", "t" }, "<A-t>", function()
   vim.cmd("Floaterminal")
 end, { noremap = true, silent = true })
+
 
 -- yank to clipboard
 map({"n","v"}, "<leader>y", [["+y]], { noremap = false, silent = true })
@@ -30,12 +25,6 @@ map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = tr
 
 -- File Tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })  -- Toggle NvimTree
-
--- -- Yazi Keybindings
--- map("n", "<leader>e", "<cmd>Yazi<CR>", { noremap = true, silent = true })  -- Open Yazi
--- map("n", "<leader>o", "<cmd>Yazi cwd<CR>", { noremap = true, silent = true }) -- Open Yazi in current working dir
--- map("n", "<c-up>", "<cmd>Yazi toggle<CR>", { noremap = true, silent = true }) -- Resume last Yazi session
-
 
 -- Git Signs
 map("n", "]c", function()  -- Jump to next hunk
@@ -66,5 +55,7 @@ end, { desc = "Format buffer" })
 vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
+-- Dismiss Noice Message
+vim.keymap.set("n", "<leader>nd", "<Cmd>NoiceDismiss<Cmd>", { noremap = true, silent = true})
 
 
