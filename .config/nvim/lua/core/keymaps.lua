@@ -56,6 +56,6 @@ vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, s
 vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 -- Dismiss Noice Message
-vim.keymap.set("n", "<leader>nd", "<Cmd>NoiceDismiss<Cmd>", { noremap = true, silent = true})
+vim.keymap.set("n", "<leader>nd", "<Cmd>NoiceDismiss<CR>", { noremap = true, silent = true})
 
 
