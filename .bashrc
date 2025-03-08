@@ -56,13 +56,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+parse_git_branch() {
+    local branch=$(git branch 2>/dev/null | sed -n '/\* /s///p')
+    if [ -n "$branch" ]; then
+        echo -e " \033[0;36m $branch\033[0m"
+    fi
+}
+
 ncolors=$(tput colors)
 if [[ -n "$ncolors" && "$ncolors" -gt 2 ]]; then
-    PS1='[\[\e[0;33m\]\t\[\e[0m\]] \[\e[0;35m\]\u\[\e[0m\]@\[\e[0;35m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
+    PS1='[\[\e[0;33m\]\t\[\e[0m\]] \[\e[0;35m\]\u\[\e[0m\]@\[\e[0;35m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]$(parse_git_branch)\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
 fi
 unset color_prompt force_color_prompt
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
