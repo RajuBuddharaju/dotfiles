@@ -59,12 +59,13 @@ assign [class="(?i)zen"] $ws2
 assign [class="(?i)code"] $ws3
 assign [class="(?i)libreoffice"] $ws3
 assign [class="(?i)thunderbird-esr"] $ws3
-assign [class="(?i)signal"] $ws3
+assign [class="(?i)anytype"] $ws3
 
 # Workspace 4
 assign [class="(?i)discord"] $ws4
 assign [class="(?i)zapzap"] $ws4
 assign [class="(?i)teams-for-linux"] $ws4
+assign [class="(?i)signal"] $ws4
 
 
 set $ls eDP-1 # laptop screen
