@@ -41,25 +41,34 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+#  To get the name of a application:
+#   1. open the window
+#   2. open a terminal next to it
+#   3. run ` xprop | grep "WM_CLASS(STRING)" ` in the terminal
+#   4. click on the application you want to get the name of
+#   5. a string of text should be printed. Use the last one.
+
 # Workspace 1
 assign [class="(?i)kitty"] $ws1
 
 # Workspace 2
 assign [class="(?i)firefox"] $ws2
+assign [class="(?i)zen"] $ws2
 
 # Workspace 3
 assign [class="(?i)code"] $ws3
 assign [class="(?i)libreoffice"] $ws3
+assign [class="(?i)thunderbird-esr"] $ws3
+assign [class="(?i)signal"] $ws3
 
 # Workspace 4
 assign [class="(?i)discord"] $ws4
 assign [class="(?i)zapzap"] $ws4
-assign [class="(?i)thunderbird-esr"] $ws4
 assign [class="(?i)teams-for-linux"] $ws4
+
 
 set $ls eDP-1 # laptop screen
 set $fm HDMI-1 #external monitor
 
-exec --no-startup-id autorandr --change
 
 
