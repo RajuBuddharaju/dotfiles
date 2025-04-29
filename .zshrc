@@ -29,9 +29,31 @@ case "$TERM" in
 esac
 
 # --- Aliases ---
+
+# List commands
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# Git commands
+alias gs='git status --short'
+
+alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
+
+alias ga='git add'
+alias gap='git add --patch'
+
+alias gc='git commit'
+
+alias gp='git push'
+alias gu='git pull'
+
+alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
+alias gb='git branch'
+
+alias gi='git init'
+alias gco='git checkout'
+alias gcl='git clone'
 
 # --- Zoxide (better cd) ---
 if command -v zoxide >/dev/null 2>&1; then
