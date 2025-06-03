@@ -92,3 +92,8 @@ compinit -C
 
 # --- Misc ---
 export TERM=xterm-256color
+
+# --- Random ---
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
