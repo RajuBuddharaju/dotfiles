@@ -67,6 +67,12 @@ if command -v eza >/dev/null 2>&1; then
   alias tree="eza --tree --icons=always"
 fi
 
+# --- Bat (better cat) ---
+if command -v batcat >/dev/null 2>&1; then
+  alias bat="batcat"
+  alias cat="batcat --paging=never"
+fi
+
 # --- Homebrew ---
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
@@ -75,6 +81,10 @@ alias nvmload='source ~/.nvm/nvm.sh'
 
 # --- Pipx ---
 export PATH="$PATH:$HOME/.local/bin"
+
+# --- Scripts Folder ---
+export PATH="$HOME/scripts:$PATH"
+# chmod +x ~/scripts/*.sh
 
 # --- Autosuggestions ---
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -92,8 +102,3 @@ compinit -C
 
 # --- Misc ---
 export TERM=xterm-256color
-
-# --- Random ---
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
-
