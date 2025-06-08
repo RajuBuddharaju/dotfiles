@@ -15,9 +15,10 @@ return {
     },
     config = function()
       local lspconfig = require("lspconfig") -- Ensure lspconfig is required first
+      local capabilities = require("cmp_nvim_lsp").default_capabilities() -- Ensure cmp-nvim-lsp is required first
 
       -- Python LSP
-      require("lspconfig").pyright.setup {
+      lspconfig.pyright.setup {
         settings = {
           python = {
             analysis = {
@@ -41,6 +42,9 @@ return {
 
       -- C++ LSP
       lspconfig.clangd.setup {}
+
+      -- Java LSP
+      lspconfig.jdtls.setup{}
 
       -- PHP LSP
       lspconfig.intelephense.setup {
@@ -84,6 +88,15 @@ return {
           },
         },
       }
+
+      -- Assigning capabilities for all LSPs.
+      local servers = { "pyright", "lua_ls", "clangd", "intelephense", "html", "jdtls" }
+
+      for _, name in ipairs(servers) do
+        lspconfig[name].setup({
+          capabilities = capabilities,
+        })
+      end
 
     end,
   }
