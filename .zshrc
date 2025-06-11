@@ -76,6 +76,13 @@ fi
 # --- Homebrew ---
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
+# --- Gurobi ---
+export GUROBI_HOME="/opt/gurobi12.0.2/linux64"
+export PATH="$GUROBI_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$GUROBI_HOME/lib:$LD_LIBRARY_PATH"
+export CLASSPATH="$GUROBI_HOME/lib/gurobi.jar:."
+
+
 # --- NVM Load Command ---
 alias nvmload='source ~/.nvm/nvm.sh'
 
@@ -102,3 +109,7 @@ compinit -C
 
 # --- Misc ---
 export TERM=xterm-256color
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
