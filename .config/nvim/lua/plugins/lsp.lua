@@ -89,8 +89,16 @@ return {
         },
       }
 
+      -- Dart LSP
+      lspconfig.dartls.setup {
+        cmd = { "dart", "language-server", "--protocol=lsp" },
+        filetypes = { "dart" },
+        root_dir = require('lspconfig.util').root_pattern("pubspec.yaml"),
+      }
+
+
       -- Assigning capabilities for all LSPs.
-      local servers = { "pyright", "lua_ls", "clangd", "intelephense", "html", "jdtls" }
+      local servers = { "pyright", "lua_ls", "clangd", "intelephense", "html", "jdtls", "dartls" }
 
       for _, name in ipairs(servers) do
         lspconfig[name].setup({

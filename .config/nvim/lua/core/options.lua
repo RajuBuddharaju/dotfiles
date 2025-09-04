@@ -19,7 +19,7 @@ vim.opt.scrolloff = 8     -- minimum number of lines to keep above and below the
 vim.opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.js", "*.html", "*.css", "*.lua" },
+  pattern = { "*.js", "*.html", "*.css", "*.lua", "*.dart" },
   callback = function()
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
