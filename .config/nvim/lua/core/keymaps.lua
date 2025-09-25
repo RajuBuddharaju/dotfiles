@@ -18,7 +18,7 @@ map("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, silent = true
 map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })   -- Help tags
 
 -- File Manager
-map("n", "<leader>o", ":Oil", { noremap = true, silent = true })  -- Toggle NvimTree
+map("n", "<leader>o", "<cmd>Oil<CR>",{ noremap = true, silent = true })  -- Toggle NvimTree
 
 -- Git Signs
 map("n", "]c", function()  -- Jump to next hunk

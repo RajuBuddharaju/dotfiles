@@ -30,6 +30,9 @@ esac
 
 # --- Aliases ---
 
+# Neovim commands
+alias vim='nvim'
+
 # List commands
 alias ll='ls -alF'
 alias la='ls -A'
