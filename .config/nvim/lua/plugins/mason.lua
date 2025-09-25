@@ -14,7 +14,6 @@ return {
         "intelephense",
         "html",
         "jdtls",
-        "dartls",
       },
       automatic_installation = true,
     }

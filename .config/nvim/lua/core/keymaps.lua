@@ -1,20 +1,14 @@
 vim.g.mapleader = " "
 local map = vim.keymap.set
 
--- exiting terminal mode
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
-
-vim.keymap.set({ "n", "t" }, "<A-t>", function()
-  vim.cmd("Floaterminal")
-end, { noremap = true, silent = true })
-
-
 -- yank to clipboard
 map({"n","v"}, "<leader>y", [["+y]], { noremap = false, silent = true })
 
 -- buffers
-map("n", "<leader>bn", ":bn<CR>", { noremap = true, silent = true })  -- Next buffer
-map("n", "<leader>bp", ":bp<CR>", { noremap = true, silent = true })  -- Previous buffer
+-- map("n", "<leader>bn", ":bn<CR>", { noremap = true, silent = true })  -- Next buffer
+-- map("n", "<leader>bp", ":bp<CR>", { noremap = true, silent = true })  -- Previous buffer
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 map("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })  -- Delete buffer
 
 -- Telescope
@@ -23,8 +17,8 @@ map("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, silent = tr
 map("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, silent = true })     -- Buffer list
 map("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })   -- Help tags
 
--- File Tree
-map("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })  -- Toggle NvimTree
+-- File Manager
+map("n", "<leader>o", ":Oil", { noremap = true, silent = true })  -- Toggle NvimTree
 
 -- Git Signs
 map("n", "]c", function()  -- Jump to next hunk
@@ -50,10 +44,6 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, si
 vim.keymap.set("n", "<leader>i", function()
   vim.lsp.buf.format({ async = true }) -- Uses LSP formatting if available
 end, { desc = "Format buffer" })
-
--- For switching buffers in the buffer cycle.
--- vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<Cmd>NoiceDismiss<CR>", { noremap = true, silent = true})

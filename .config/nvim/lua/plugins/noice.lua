@@ -1,5 +1,6 @@
 return {
   "folke/noice.nvim",
+  enabled = true,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -8,11 +9,11 @@ return {
   config = function()
     require("noice").setup({
       cmdline = {
-        enabled = true, -- Enables Noice cmdline UI
+        enabled = true,         -- Enables Noice cmdline UI
         view = "cmdline_popup", -- Uses floating popup for command line
       },
       messages = {
-        enabled = true, -- Enables Noice messages UI
+        enabled = true,  -- Enables Noice messages UI
         view = "notify", -- Default view for messages
       },
       popupmenu = {
@@ -54,4 +55,3 @@ return {
     })
   end,
 }
-

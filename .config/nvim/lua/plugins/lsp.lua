@@ -14,46 +14,49 @@ return {
       },
     },
     config = function()
-      local lspconfig = require("lspconfig") -- Ensure lspconfig is required first
-      local capabilities = require("cmp_nvim_lsp").default_capabilities() -- Ensure cmp-nvim-lsp is required first
+      -- nvim-cmp capabilities once, for all servers
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      vim.lsp.config("*", { capabilities = capabilities }) -- apply to every server
 
-      -- Python LSP
-      lspconfig.pyright.setup {
+      -- If you still need utilities like root_pattern:
+      local util = require("lspconfig.util")
+
+      -- Python
+      vim.lsp.config("pyright", {
         settings = {
           python = {
             analysis = {
-              typeCheckingMode = "off", -- Use "strict" if you want even more checks
+              typeCheckingMode = "off",
               diagnosticSeverityOverrides = {
-                reportGeneralTypeIssues = "error", -- Treat general type warnings as errors
-                reportOptionalMemberAccess = "error", -- Prevent accessing properties on optional types
-                reportOptionalSubscript = "error", -- Prevent indexing `None`
-                reportPrivateImportUsage = "error", -- Disallow using private modules
-                reportUnboundVariable = "error", -- Treat unbound variables as errors
-                reportUndefinedVariable = "error", -- Undefined vars should be errors
-                reportInvalidTypeVarUse = "error", -- Using TypeVar incorrectly
+                reportGeneralTypeIssues = "error",
+                reportOptionalMemberAccess = "error",
+                reportOptionalSubscript = "error",
+                reportPrivateImportUsage = "error",
+                reportUnboundVariable = "error",
+                reportUndefinedVariable = "error",
+                reportInvalidTypeVarUse = "error",
               },
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      })
 
-      -- Lua LSP
-      lspconfig.lua_ls.setup {}
+      -- Lua
+      vim.lsp.config("lua_ls", {})
 
-      -- C++ LSP
-      lspconfig.clangd.setup {}
+      -- C/C++
+      vim.lsp.config("clangd", {})
 
-      -- Java LSP
-      lspconfig.jdtls.setup{}
+      -- Java
+      vim.lsp.config("jdtls", {})
 
-      -- PHP LSP
-      lspconfig.intelephense.setup {
+      -- PHP
+      vim.lsp.config("intelephense", {
         cmd = { "intelephense", "--stdio" },
         filetypes = { "php" },
         root_dir = function(fname)
-          return lspconfig.util.root_pattern("package.json", ".git", "index.php")(fname) or vim.fn.getcwd()  -- Fallback to current directory if no project is found
+          return util.root_pattern("package.json", ".git", "index.php")(fname) or vim.fn.getcwd()
         end,
-
         settings = {
           intelephense = {
             stubs = {
@@ -61,52 +64,35 @@ return {
               "json", "mbstring", "openssl", "pcre", "PDO", "session", "SPL", "standard", "xml",
               "zip", "zlib"
             },
-            files = {
-              maxSize = 5000000, -- Set max file size (5MB)
-            },
-            diagnostics = {
-              enable = true,
-            },
+            files = { maxSize = 5000000 },
+            diagnostics = { enable = true },
           },
         },
-      }
+      })
 
-      -- HTML LSP
-      lspconfig.html.setup {
+      -- HTML
+      vim.lsp.config("html", {
         cmd = { "vscode-html-language-server", "--stdio" },
         filetypes = { "html", "htm", "twig", "php" },
         settings = {
           html = {
-            format = {
-              wrapLineLength = 120,
-              unformatted = "pre,code,textarea",
-            },
-            hover = {
-              documentation = true,
-              references = true,
-            },
+            format = { wrapLineLength = 120, unformatted = "pre,code,textarea" },
+            hover = { documentation = true, references = true },
           },
         },
-      }
+      })
 
-      -- Dart LSP
-      lspconfig.dartls.setup {
+      -- Dart
+      vim.lsp.config("dartls", {
         cmd = { "dart", "language-server", "--protocol=lsp" },
         filetypes = { "dart" },
-        root_dir = require('lspconfig.util').root_pattern("pubspec.yaml"),
-      }
+        root_dir = util.root_pattern("pubspec.yaml"),
+      })
 
-
-      -- Assigning capabilities for all LSPs.
-      local servers = { "pyright", "lua_ls", "clangd", "intelephense", "html", "jdtls", "dartls" }
-
-      for _, name in ipairs(servers) do
-        lspconfig[name].setup({
-          capabilities = capabilities,
-        })
+      -- finally, enable them
+      for _, name in ipairs({ "pyright", "lua_ls", "clangd", "jdtls", "intelephense", "html", "dartls" }) do
+        vim.lsp.enable(name)
       end
-
     end,
   }
 }
-
