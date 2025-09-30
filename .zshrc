@@ -116,3 +116,7 @@ export TERM=xterm-256color
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+# --- Sage ---
+alias sage-docker='docker run -it -v "$PWD":/mnt sagemath/sagemath:latest sage'
+
