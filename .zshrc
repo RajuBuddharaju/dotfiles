@@ -58,11 +58,6 @@ alias gi='git init'
 alias gco='git checkout'
 alias gcl='git clone'
 
-# --- Zoxide (better cd) ---
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-  alias cd='z'
-fi
 
 # --- Eza (better ls) ---
 if command -v eza >/dev/null 2>&1; then
@@ -73,7 +68,6 @@ fi
 # --- Bat (better cat) ---
 if command -v batcat >/dev/null 2>&1; then
   alias bat="batcat"
-  alias cat="batcat --paging=never"
 fi
 
 # --- Homebrew ---
