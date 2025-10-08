@@ -1,3 +1,6 @@
+vim.o.exrc = true   -- allow project-local configs
+vim.o.secure = true -- prevent unsafe commands
+
 vim.opt.nu = true             -- enable line numbers
 vim.opt.relativenumber = true -- relative line numbers
 
