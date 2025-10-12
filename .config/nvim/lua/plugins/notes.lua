@@ -31,7 +31,6 @@ return {
   only_in_notes(require("plugins.image")),
   only_in_notes(require("plugins.img-clip")),
   only_in_notes(require("plugins.mdmath")),
-  only_in_notes(require("plugins.obsidian")),
   only_in_notes(require("plugins.render-markdown")),
 }
 
