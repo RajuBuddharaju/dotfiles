@@ -5,7 +5,7 @@ return {
     opts = {}
   },
   {
-    "mason-org/mason-lspconfig.nvim", -- still maintained under original repo
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
         "pyright",
@@ -14,6 +14,7 @@ return {
         "intelephense",
         "html",
         "jdtls",
+        "bash-language-server",
       },
       automatic_installation = true,
     }

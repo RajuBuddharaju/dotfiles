@@ -50,6 +50,9 @@ return {
       -- Java
       vim.lsp.config("jdtls", {})
 
+      -- Scripting
+      vim.lsp.config("bash-language-server", {})
+
       -- PHP
       vim.lsp.config("intelephense", {
         cmd = { "intelephense", "--stdio" },
