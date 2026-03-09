@@ -30,9 +30,6 @@ esac
 
 # --- Aliases ---
 
-# Neovim commands
-alias vim='nvim'
-
 # List commands
 alias ll='ls -alF'
 alias la='ls -A'
@@ -40,29 +37,12 @@ alias l='ls -CF'
 
 # Git commands
 alias gs='git status --short'
-
-alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
-
-alias ga='git add'
-alias gap='git add --patch'
-
-alias gc='git commit'
-
-alias gp='git push'
-alias gu='git pull'
-
 alias gl='git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
-alias gb='git branch'
-
-alias gi='git init'
-alias gco='git checkout'
-alias gcl='git clone'
-
 
 # --- Eza (better ls) ---
 if command -v eza >/dev/null 2>&1; then
   alias ls="eza --long --git --group-directories-first --icons"
-  alias tree="eza --tree --icons=always"
+  alias etree="eza --tree --icons=always"
 fi
 
 # --- Bat (better cat) ---
@@ -113,4 +93,7 @@ export PATH="$HOME/gems/bin:$PATH"
 
 # --- Sage ---
 alias sage-docker='docker run -it -v "$PWD":/mnt sagemath/sagemath:latest sage'
+
+# --- Matlab ---
+export PATH=~/MATLAB/bin:$PATH
 
